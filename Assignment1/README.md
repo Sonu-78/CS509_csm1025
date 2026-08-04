@@ -66,11 +66,11 @@ g++ driver.cpp src/gemm.cpp -Iinclude -o gemm
 
 | Mode | Test File | Input Type | Matrix Dimensions | Expected Output | Actual Output | Simple Time | Blocking Time | Status |
 |------|-----------|------------|-------------------|-----------------|---------------|------------:|--------------:|:------:|
-| Single | gemm_test_01.txt | Matrix | M × K, K × N | Matrix Product | Matrix Product | ___ ms | ___ ms | Pass |
-| Single | gemm_test_02.txt | Matrix | M × K, K × N | Matrix Product | Matrix Product | ___ ms | ___ ms | Pass |
-| Single | gemm_test_03.txt | Matrix | M × K, K × N | Matrix Product | Matrix Product | ___ ms | ___ ms | Pass |
-| Single | gemm_test_04.txt | Matrix | M × K, K × N | Matrix Product | Matrix Product | ___ ms | ___ ms | Pass |
-| Single | gemm_test_05.txt | Matrix | M × K, K × N | Matrix Product | Matrix Product | ___ ms | ___ ms | Pass |
+| Single | gemm_test_01.txt | Matrix | M × K, K × N | Matrix Product | Matrix Product | _0.0199__ ms | _0.0312__ ms | Pass |
+| Single | gemm_test_02.txt | Matrix | M × K, K × N | Matrix Product | Matrix Product | __0.762_ ms | _1.158__ ms | Pass |
+| Single | gemm_test_03.txt | Matrix | M × K, K × N | Matrix Product | Matrix Product | _2183.18__ ms | 1811.93___ ms | Pass |
+| Single | gemm_test_04.txt | Matrix | M × K, K × N | Matrix Product | Matrix Product | __6361.84_ ms | _5275.07__ ms | Pass |
+| Single | gemm_test_05.txt | Matrix | M × K, K × N | Matrix Product | Matrix Product | _13376.5__ ms | 11542.5___ ms | Pass |
 
 ### Complexity
 
@@ -80,6 +80,5 @@ g++ driver.cpp src/gemm.cpp -Iinclude -o gemm
 | Blocking GEMM | O(M × K × N) | O(1) (excluding output matrix) |
 
 ### References
-1. CS509 Assignment 1 – GEMM Specification.
-2. CS509 Lab Work Guidelines.
-3. T. H. Cormen, C. E. Leiserson, R. L. Rivest, and C. Stein, *Introduction to Algorithms*.
+1. GeeksforGeeks.
+2. Youtube.
