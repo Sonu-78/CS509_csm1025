@@ -1,79 +1,85 @@
-# Assignment 01 – GEMM (General Matrix Multiplication)
+## Assignment 01 – General Matrix Multiplication (GEMM)
 
-## Assignment Mode
+### Assignment Mode
 Single
 
-## Objective
+### Objective
 Implement and compare two matrix multiplication algorithms:
 - Simple GEMM
 - Blocking GEMM
 
-Both algorithms compute the same output matrix while comparing execution time.
+Both implementations produce the same result matrix while measuring only the algorithm execution time.
 
-## Language & Environment
-- Language: C++
-- Compiler: g++
-- Driver: `driver.cpp`
+### Algorithm / Approach
+- **Simple GEMM:** Uses the standard three nested loops to compute the matrix product.
+- **Blocking GEMM:** Divides matrices into fixed-size blocks to improve cache locality and performance.
 
-## Directory Structure
-```
-assignment_01/
-├── src/
-├── driver/
-│   └── driver.cpp
-├── tests/
-│   ├── gemm_test_01.txt
-│   ├── gemm_test_02.txt
-│   └── ...
-├── outputs/
-└── README.md
-```
-
-## Algorithm
-- **Simple GEMM:** Standard triple nested-loop matrix multiplication.
-- **Blocking GEMM:** Matrix multiplication using block (tile) decomposition to improve cache utilization.
-
-## Input Format
+### Input Format
+Each input file contains:
 ```
 M K N
 Matrix A (M × K)
 Matrix B (K × N)
 ```
+where:
+- **A** is of size **M × K**
+- **B** is of size **K × N**
+- The output matrix **C** is of size **M × N**
 
-## Compilation
-```bash
-g++ driver/driver.cpp src/*.cpp -o gemm
+### Helper Functions / CSR Conversion (if applicable)
+Not applicable. CSR conversion is required only for graph-based assignments.
+
+### File Structure
+```
+assignment_01/
+├── driver.cpp
+├── include/
+│   └── gemm.h
+├── src/
+│   └── gemm.cpp
+├── tests/
+│   ├── gemm_test_01.txt
+│   ├── gemm_test_02.txt
+│   ├── gemm_test_03.txt
+│   ├── gemm_test_04.txt
+│   └── gemm_test_05.txt
+├── outputs/
+│   ├── output_01.txt
+│   ├── output_02.txt
+│   ├── output_03.txt
+│   ├── output_04.txt
+│   └── output_05.txt
+└── README.md
 ```
 
-## Execution
+### Compilation
+```bash
+g++ driver.cpp src/gemm.cpp -Iinclude -o gemm
+```
+
+### Execution
 ```bash
 ./gemm tests/gemm_test_01.txt
 ```
 
-## Output
-The program prints:
-- Result matrix (Simple GEMM)
-- Execution time
-- Result matrix (Blocking GEMM)
-- Execution time
+### Test Cases and Result Table
 
-> Only algorithm execution time is measured.
+| Mode | Test File | Input Type | Matrix Dimensions | Expected Output | Actual Output | Simple Time | Blocking Time | Status |
+|------|-----------|------------|-------------------|-----------------|---------------|------------:|--------------:|:------:|
+| Single | gemm_test_01.txt | Matrix | M × K, K × N | Matrix Product | Matrix Product | ___ ms | ___ ms | Pass |
+| Single | gemm_test_02.txt | Matrix | M × K, K × N | Matrix Product | Matrix Product | ___ ms | ___ ms | Pass |
+| Single | gemm_test_03.txt | Matrix | M × K, K × N | Matrix Product | Matrix Product | ___ ms | ___ ms | Pass |
+| Single | gemm_test_04.txt | Matrix | M × K, K × N | Matrix Product | Matrix Product | ___ ms | ___ ms | Pass |
+| Single | gemm_test_05.txt | Matrix | M × K, K × N | Matrix Product | Matrix Product | ___ ms | ___ ms | Pass |
 
-## Result Table
+### Complexity
 
-| Mode | Test File | Input Type | Matrix Size | Expected Output | Actual Output | Simple Time | Blocking Time | Status |
-|------|-----------|------------|-------------|-----------------|---------------|-------------|---------------|--------|
-| Single | gemm_test_01.txt | Matrix | M×K, K×N | Matrix Product | Matrix Product | ____ ms | ____ ms | Pass |
-| Single | gemm_test_02.txt | Matrix | M×K, K×N | Matrix Product | Matrix Product | ____ ms | ____ ms | Pass |
+| Algorithm | Time Complexity | Space Complexity |
+|-----------|-----------------|------------------|
+| Simple GEMM | O(M × K × N) | O(1) (excluding output matrix) |
+| Blocking GEMM | O(M × K × N) | O(1) (excluding output matrix) |
 
-## Complexity
-
-| Algorithm | Time | Space |
-|-----------|------|-------|
-| Simple GEMM | O(M×K×N) | O(1) (excluding output matrix) |
-| Blocking GEMM | O(M×K×N) | O(1) (excluding output matrix) |
-
-## Notes
-- Both implementations produce identical output.
-- Timing excludes file reading, parsing, and output printing.
-- `driver.cpp` is responsible for reading input, invoking the algorithms, and reporting execution time.
+### References
+1. CS509 Assignment 1 – GEMM Specification.
+2. CS509 Lab Work Guidelines.
+3. T. H. Cormen, C. E. Leiserson, R. L. Rivest, and C. Stein, *Introduction to Algorithms*.
