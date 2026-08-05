@@ -7,4 +7,4 @@ col_idx:
 values:
 5 3 2 4 1 7 2 6 4 3 8 5 1 2 9 
 
-Execution Time: 1.1657 ms
+Execution Time: 0.6532 ms
