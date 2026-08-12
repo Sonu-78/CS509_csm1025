@@ -41,7 +41,6 @@ assignment_02/
 
 Each weighted graph file contains:
 
-```text
 V E
 vertex degree neighbor weight ...
 ...
